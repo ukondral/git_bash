@@ -1,0 +1,34 @@
+cd ~                                     # Open the home directory
+pwd                                      # Determine the name of the folder you are in
+mkdir test3                              # Create a folder test3
+cd test3                                 # Go to test3
+touch 4 5 6                              # create files 1, 2, 3
+echo -e "row1\nrow2\nrow3\nrow4" > 4     # Add 4 "row" lines to each file
+echo -e "row1\nrow2\nrow3\nrow4" > 5
+echo -e "row1\nrow2\nrow3\nrow4" > 6
+grep "row2" 5                            # Find row 2 in file 5
+grep -r "row"                            # Find the "row" in the folder test3
+grep -c "row" 6                          # Calculate how many lines with row in a file 6
+find . -name "5"                         # Find file 5 inside the folder test3 
+find . -name "5" -exec rm {} \;          # Delete file 5 using find
+ls -l                                    # Сheck for deletion
+echo "test" > 4                          # Add the word test to file 4 (without saving its contents)
+cat 4                                    # Check the content
+sed -i '' 's/test/fail/' 4               # Replace the word "test" with fail in file 4
+echo "test" >> 4                         # Add the word test to file 4, saving the contents
+ps aux                                   # View all processes for users (not only console ones)
+kill 666                                 # Kill process 666
+ping rusau.net                           # Check availability rusau.net using ping
+ping -c 5 rusau.net                      # Send 5 packages to rusau.net
+
+                                         # Using GET and the curl command, you can get information about registered pets with any status on https://petstore.swagger.io/
+
+curl -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=available"    
+
+                                         # Using PAST and the curl command, create a new user on https://petstore.swagger.io/
+
+curl -X POST "https://petstore.swagger.io/v2/user" \
+     -H "Content-Type: application/json" \
+     -d '{"id":123, "username":"testuser", "firstName":"John", "lastName":"Doe", "email":"john.doe@example.com", "password":"123456", "phone":"1234567890", "userStatus":1}'
+     
+
